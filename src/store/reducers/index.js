@@ -9,44 +9,66 @@ import {
 } from "../types";
 import screens from "../../utils/screens";
 import { wordMatcher } from "../../utils/functions";
+import shuffle from "lodash/shuffle";
+
+const menuOfDay = [
+  {
+    id: 1,
+    name: "Hamburger",
+    question:
+      "A sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, smoked or flame broiled.",
+    price: 10,
+    day: "Monday"
+  },
+  {
+    id: 2,
+    name: "Pizza",
+    question:
+      "The most known italian food. It's the first thing you can think of eating with friends.",
+    price: 10,
+    day: "Tuesday"
+  },
+  {
+    id: 3,
+    name: "Calzone",
+    question:
+      "An Italian oven-baked folded pizza that originated in Naples in the 18th century. Is made from salted bread dough",
+    price: 3,
+    day: "Wednesday"
+  },
+  {
+    id: 4,
+    name: "Pepsi",
+    question: "Coke or...",
+    price: 1,
+    day: "Thursday"
+  },
+  {
+    id: 5,
+    name: "French Fries",
+    question: `They are served hot, either soft or crispy, and are generally eaten as part of lunch or dinner or by themselves as a snack, and they commonly
+        appear on the menus of diners, fast food restaurants, pubs, and bars. They are also called as Finger Chips?`,
+    price: 10,
+    day: "Friday"
+  },
+  {
+    id: 6,
+    name: "Ice cream",
+    question: `Is the best thing you can get in a hot day.`,
+    price: 4,
+    day: "Saturday"
+  },
+  {
+    id: 7,
+    name: "Red bull",
+    question: `The drink that can give you energy to keep working`,
+    price: 8,
+    day: "Sunday"
+  }
+];
 
 const initialState = {
-  menu: [
-    {
-      id: 1,
-      name: "Hamburger",
-      question:
-        "A sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, smoked or flame broiled.",
-      price: 10
-    },
-    {
-      id: 2,
-      name: "Pizza",
-      question:
-        "The most known italian food. It's the first thing you can think of eating with friends.",
-      price: 10
-    },
-    {
-      id: 3,
-      name: "Calzone",
-      question:
-        "An Italian oven-baked folded pizza that originated in Naples in the 18th century. Is made from salted bread dough",
-      price: 3
-    },
-    {
-      id: 4,
-      name: "Pepsi",
-      question: "Coke or...",
-      price: 1
-    },
-    {
-      id: 5,
-      name: "French Fries",
-      question: `They are served hot, either soft or crispy, and are generally eaten as part of lunch or dinner or by themselves as a snack, and they commonly
-        appear on the menus of diners, fast food restaurants, pubs, and bars. They are also called as Finger Chips?`,
-      price: 10
-    }
-  ],
+  menu: shuffle(menuOfDay),
   timers: [
     { id: 1, label: 10, isSelected: true },
     { id: 2, label: 20, isSelected: false }

@@ -11,6 +11,7 @@ import {
 } from "../store/actions";
 import { connect } from "react-redux";
 import sample from "lodash/sample";
+import moment from "moment";
 
 class ConnectedGuessMenu extends React.Component {
   state = {
@@ -20,8 +21,10 @@ class ConnectedGuessMenu extends React.Component {
 
   componentDidMount() {
     const { menu, setGuess } = this.props;
+    const day = moment().format("dddd");
+    const menuOfDay = menu.find(i => i.day === day);
+    setGuess(menuOfDay);
     this.startCountDown();
-    setGuess(sample(menu));
   }
 
   tick = () => {

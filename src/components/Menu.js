@@ -5,6 +5,7 @@ import { Wrapper } from "./Layout";
 import { setScreen } from "../store/actions";
 import { connect } from "react-redux";
 import screens from "../utils/screens";
+import moment from "moment";
 
 class ConnectedMenu extends React.Component {
   state = {
@@ -45,7 +46,7 @@ class ConnectedMenu extends React.Component {
       <Wrapper>
         <TickTimer time={seconds} />
         <h1>Welcome to HME</h1>
-        <h2>Today's menu - 10/31/2019</h2>
+        <h2>Today's menu - {moment().format("MM/DD/YY")}</h2>
         <MenuList data={menu} />
       </Wrapper>
     );
